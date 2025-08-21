@@ -13,7 +13,7 @@ sheet_url = "https://docs.google.com/spreadsheets/d/1WJR1tCiYRCJYbvfcW8fMySuqzG5
 df = pd.read_csv(sheet_url)
 
 # --- FITUR PENCARIAN ---
-search = st.text_input("Cari SPM:")
+search = st.text_input("Cari Data:", placeholder="Ketik nomor SPM/nomor FP")
 
 if search:
     df_filtered = df[df.astype(str).apply(lambda x: x.str.contains(search, case=False)).any(axis=1)]
@@ -22,3 +22,4 @@ else:
 
 # --- TAMPILKAN TABEL ---
 st.dataframe(df_filtered, use_container_width=True)
+
